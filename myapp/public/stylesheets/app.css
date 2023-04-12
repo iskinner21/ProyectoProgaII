@@ -29,7 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: rgb(192, 218, 227);
 }
 
 ul,
@@ -43,6 +43,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  text-decoration: underline;
 }
 
 figure {
@@ -68,12 +69,13 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--light-blue);
 }
 
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
+  color: white;
 }
 
 .main-header_credit-link {
@@ -109,6 +111,12 @@ hr {
   cursor: pointer;
 }
 
+.titulo_header{
+  color: white;
+  font-size: 7em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
@@ -125,6 +133,7 @@ hr {
 .main-navbar {
   margin-top: 20px;
   display: none;
+  color: white;
 }
 
 .left-navbar,
@@ -154,7 +163,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/banner_principal.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -171,7 +180,8 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .product-box {
@@ -259,7 +269,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: var(--light-blue);
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -269,18 +279,18 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: white;
   font-size: 3.5em;
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
   font-weight: 300;
 }
