@@ -55,7 +55,7 @@ img {
 }
 
 input,
-textarea {
+.rememberme {
   font-family: inherit;
 }
 
@@ -430,7 +430,7 @@ hr {
   margin: 10px 0;
 }
 
-.form-input {
+.rememberme {
   display: block;
   width: 100%;
   height: 45px;
