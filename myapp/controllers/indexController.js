@@ -9,5 +9,14 @@ const indexController= {
         res.render('search-results')
     }
 }
+
+const productos = {
+ index: function(req , res){
+   res.render("productos")
+
+ }
+
+
+}
 //export
 module.exports = indexController
