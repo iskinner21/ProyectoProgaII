@@ -117,6 +117,10 @@ hr {
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
+.mania-logo{
+  width: 4cm;
+  height: 4cm;
+}
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
@@ -265,6 +269,11 @@ hr {
 .product-box:hover i {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
+}
+
+.img-index {
+  width: 260px;
+  height: 300px;
 }
 
 /*====== Footer ======*/
