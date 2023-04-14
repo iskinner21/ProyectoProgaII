@@ -4,7 +4,7 @@
 const indexController= {
     index: function(req, res) {
         res.render('index', {
-            productos: Data.productos,
+            productos: data.productos,
             comentarios: data.comentarios , 
             UserLog: false
 
