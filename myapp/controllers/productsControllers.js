@@ -3,11 +3,20 @@
 //metodos
 const productsController= {
     products: function(req, res) {
-        res.render('product')
-    },
-    productAdd: function(req, res){
-        res.render('product-add')
+       return res.render('product',{
+              productos : data.productos,
+              comentarios: data.comentarios,
+              UserInfo:data.users,
+              usuarioLog: true
+        }) 
+
+        }
     }
-}
-//export
+        
+
+
+      
+
+    
+         
 module.exports = productsController

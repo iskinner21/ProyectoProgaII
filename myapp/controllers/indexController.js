@@ -3,7 +3,13 @@
 //metodos
 const indexController= {
     index: function(req, res) {
-        res.render('index')
+        res.render('index', {
+            productos: Data.productos,
+            comentarios: data.comentarios , 
+            UserLog: false
+
+
+        })
     },
     resultadoBusqueda: function(req, res){
         res.render('search-results')
@@ -12,7 +18,13 @@ const indexController= {
 
 const productos = {
  index: function(req , res){
-   res.render("productos")
+   res.render("productos",{
+    
+
+
+
+   })
+   
 
  }
 
