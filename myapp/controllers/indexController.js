@@ -1,4 +1,5 @@
-//require
+
+ 
 
 //metodos
 const indexController= {
@@ -12,13 +13,16 @@ const indexController= {
         })
     },
     resultadoBusqueda: function(req, res){
-        return res.render('search-results')
+        return res.render('resultadoBusqueda')
     }
 }
 
 const productos = {
  index: function(req , res){
-  return res.render("productos",{
+  return res.render('index',{
+    productos: data.productos ,
+    comentarios: data.comentarios , 
+    UserLog: false,
     
 
 
