@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/header') %>
+	<%- include('./partials/headerLogueado', {username: usuario.usuario}) %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -16,7 +16,7 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> <form action="/productadd" method="get">
+			<h2 class="col-12"> <br> <form action="/productadd" method="get">
 
                                        <label for="Image">Imagen:</label>
 									   <input type="file" id="image" name="Image" required>

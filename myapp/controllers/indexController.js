@@ -1,9 +1,10 @@
-
+const data = require('../data/moduleData')
  
 
 //metodos
 const indexController= {
     index: function(req, res) {
+        console.log (data)
        return res.render('index', {
             productos: data.productos,
             comentarios: data.comentarios , 

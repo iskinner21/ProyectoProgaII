@@ -23,7 +23,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-		    <% for (let=0; i<productos.lenght; i++) { %>
+		    <% for (let i=0; i<4; i++) { %>
 
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
@@ -57,62 +57,23 @@
 				<h2 class="products-title">Vintage</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img class="img-index" src="images/products/River1986.jpg" alt="images/products/default-image.png">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera alternativa River 1986</h2>
-							<p>Inspirada en un modelo icónico. Esta camiseta titular irradia la ...</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img class="img-index" src="images/products/Boca2007.jpg" alt="images/products/default-image.png">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera alternativa Boca 2007</h2>
-							<p>Inspirada en un modelo icónico. Esta camiseta titular irradia la ...</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img class="img-index" src="images/products/Racing2019.jpg" alt="images/products/default-image.png">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera titular Racing 2019</h2>
-							<p>Inspirada en un modelo icónico. Esta camiseta titular irradia la ...</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detalle">
-						<figure class="product-box_image">
-							<img class="img-index" src="images/products/Lanus2019.jpg" alt="images/products/default-image.png">
-						</figure>
-						<article class="product-box_data">
-							<h2>Remera titular Lanus 2019</h2>
-							<p>Inspirada en un modelo icónico. Esta camiseta titular irradia la ...</p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+			<% for (let i=4; i<8; i++) { %>
+
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detalle">
+							<figure class="product-box_image">
+								<img src=<%= productos[i].imagen %> alt="cafetera moulinex">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= productos[i].nombre %></h2>
+								<p><%= productos[i].descripcion %> </p>
+								<p>Comentarios del producto: <%= comentarios.length  %></p>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
 		</div>
 	</div>
 	<!-- /Más comentados -->
