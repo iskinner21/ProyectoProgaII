@@ -1,5 +1,7 @@
 const data = require('../data/moduleData')
- 
+//Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
+//Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
+// --> PREGUNTAR QUE VA EN INDEX CONTROLLER
 
 //metodos
 const indexController= {

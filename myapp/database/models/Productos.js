@@ -6,6 +6,26 @@ module.exports = function(sequelize, dataType){
 
     //Mapeo exacto de cada una de las columnas
     let col = {
+        id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER,
+        },
+        user_id: {
+            type: dataTypes.INTEGER,
+        },
+        product_name: {
+            type: dataTypes.STRING,
+        },
+        product_description: {
+            type: dataTypes.STRING,
+        },
+        created_at: {
+            type: dataTypes.DATE,
+        },
+        updated_at: {
+            type: dataTypes.DATE,
+        }
     }; 
 
     //Obj literal pata configurar la tabla

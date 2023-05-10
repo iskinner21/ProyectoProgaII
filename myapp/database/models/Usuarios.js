@@ -5,10 +5,42 @@ module.exports = function(sequelize, dataType){
     let alias = "Usuarios";
 
     //Mapeo exacto de cada una de las columnas
-    let col = {
-        
-
-
+    let col = { 
+    id:{
+        autoIncrement: true,
+        primaryKey: true,
+        type: dataTypes.INTEGER,
+    },
+    firstname:{
+        type: dataTypes.STRING,
+    },
+    lastname:{
+        type: dataTypes.STRING,
+    },
+    username:{
+        type: dataTypes.STRING,
+    },
+    birthday:{
+        type: dataTypes.DATE,
+    },
+    email:{
+        type: dataTypes.STRING,
+    },
+    contra: {
+        type: dataTypes.STRING,
+    },
+    img: {
+        type: dataTypes.STRING,
+    },
+    dni:{
+        type: dataTypes.INTEGER,
+    },
+    created_at:{
+        type: dataTypes.DATE,
+    },
+    updated_at:{
+        type: dataTypes.DATE,
+    },
     }; 
 
     //Obj literal pata configurar la tabla

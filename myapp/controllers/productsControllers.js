@@ -1,5 +1,8 @@
 //require
 const data = require('../data/moduleData')
+//Aca deberia hacer const db = require('../database/models/Productos.js) --> Preguntar lo de Productos.js
+//Despues hacer const productos = db.Productos --> (Alias del model que pusimos anteriormente)
+
 //metodos
 const productsController= {
     products: function(req, res) {
@@ -22,16 +25,6 @@ const productsController= {
         }
 
 
-}
-   
-
-
-        
-
-
-
-      
-
-    
+    } 
          
 module.exports = productsController
