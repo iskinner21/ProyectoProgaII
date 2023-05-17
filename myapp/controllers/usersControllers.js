@@ -1,5 +1,5 @@
 //require
-const data = require('../data/moduleData')
+const data = require('../data/models')
 //Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
 //Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
 
@@ -24,6 +24,13 @@ const usersController= {
         res.render('register')
     }
 
+}
+//relaciones --> Ver clase 11/05 y 15/05 para entender esta parte
+let rel = {
+    include: {
+        all: true, 
+        nested: true
+    }
 }
 //export
 module.exports = usersController

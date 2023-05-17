@@ -5,7 +5,7 @@ module.exports = function(sequelize, dataType){
     let alias = "Productos";
 
     //Mapeo exacto de cada una de las columnas
-    let col = {
+    let cols = {
         id: {
             autoIncrement: true,
             primaryKey: true,
@@ -35,7 +35,19 @@ module.exports = function(sequelize, dataType){
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const Productos = sequelize.define(alias, col, config);
+    const Productos = sequelize.define(alias, cols, config);
+
+    Productos.associate = function (models) {
+        Productos.belongsTo(models.Usuarios, {
+            as: "usuarios",
+            foreignKey: "user_id",
+        })
+        Productos.hasMany(models.Comentarios, {
+            as: "comentarios",
+            foreignKey: "product_id",
+        });
+        
+    }
 
     return Productos
         
