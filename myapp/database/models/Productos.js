@@ -1,5 +1,5 @@
 //Es una funcion que recibe 2 parametros
-module.exports = function(sequelize, dataType){
+module.exports = function(sequelize, dataTypes){
     //Crear 3 variables
     //Un apodo ara requerirlo en el controlador
     let alias = "Productos";
