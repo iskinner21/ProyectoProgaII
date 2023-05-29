@@ -9,13 +9,18 @@ const productos = db.Producto;
 //metodos
 const productsController= {
     products: function(req, res) {
-        return res.render('product',{
+        db.Producto.findAll()
+        .then((data) => {
+            return res.render('product',{
                productos : data.productos,
                comentarios: data.comentarios,
                usuario: data.usuario[0]
          }) 
-
-        },
+        })
+        .catch((error) => [
+            console.log(error)
+        ])
+    },
 
         productAdd: function(req,res){
             return res.render ('product-add', {
