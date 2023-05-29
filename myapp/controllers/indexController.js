@@ -8,14 +8,18 @@ const db = require('../database/models')
 //metodos
 const indexController= {
     index: function(req, res) {
-        console.log (data)
-       return res.render('index', {
-            productos: data.productos,
-            comentarios: data.comentarios , 
-            UserLog: false
-
-
+        db.Producto.findAll()
+        .then((data) => {
+        
+            return res.render('index', {
+                 productos: data,
+                 comentarios: [1, 2, 3, 4, 5],
+                 UserLog: false
+             })
         })
+        .catch((error) => [
+            console.log(error)
+        ])
     },
     resultadoBusqueda: function(req, res){
         return res.render('resultadoBusqueda')

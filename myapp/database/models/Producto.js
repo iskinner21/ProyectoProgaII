@@ -2,7 +2,7 @@
 module.exports = function(sequelize, dataTypes){
     //Crear 3 variables
     //Un apodo ara requerirlo en el controlador
-    let alias = "Productos";
+    let alias = "Producto";
 
     //Mapeo exacto de cada una de las columnas
     let cols = {
@@ -13,6 +13,9 @@ module.exports = function(sequelize, dataTypes){
         },
         user_id: {
             type: dataTypes.INTEGER,
+        },
+        product_img: {
+            type: dataTypes.STRING,
         },
         product_name: {
             type: dataTypes.STRING,
@@ -35,20 +38,20 @@ module.exports = function(sequelize, dataTypes){
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const Productos = sequelize.define(alias, cols, config);
+    const Producto = sequelize.define(alias, cols, config);
 
-    Productos.associate = function (models) {
-        Productos.belongsTo(models.Usuarios, {
+    Producto.associate = function (models) {
+        Producto.belongsTo(models.Usuario, {
             as: "usuarios",
             foreignKey: "user_id",
         })
-        Productos.hasMany(models.Comentarios, {
+        Producto.hasMany(models.Comentario, {
             as: "comentarios",
             foreignKey: "product_id",
         });
         
     }
 
-    return Productos
+    return Producto
         
 };

@@ -2,7 +2,7 @@
 module.exports = function(sequelize, dataTypes){
     //Crear 3 variables
     //Un apodo ara requerirlo en el controlador
-    let alias = "Comentarios";
+    let alias = "Comentario";
 
     //Mapeo exacto de cada una de las columnas
     let cols = {
@@ -35,20 +35,20 @@ module.exports = function(sequelize, dataTypes){
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
-    const Comentarios = sequelize.define(alias, cols, config);
+    const Comentario = sequelize.define(alias, cols, config);
 
-    Comentarios.associate = function (models) {
-        Comentarios.belongsTo(models.Usuarios, {
+    Comentario.associate = function (models) {
+        Comentario.belongsTo(models.Usuario, {
             as: "usuarios",
             foreignKey: "user_id"
         })
-        Comentarios.belongsTo(models.Productos, {
+        Comentario.belongsTo(models.Producto, {
             as: "productos",
             foreignKey: "product_id"
         })
         
     }
 
-    return Comentarios
+    return Comentario
         
 };

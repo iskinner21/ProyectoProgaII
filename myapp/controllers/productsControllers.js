@@ -1,6 +1,6 @@
 //require
 const db = require('../database/models')
-const productos = db.Productos;
+const productos = db.Producto;
 //Aca deberia hacer const db = require('../database/models/Productos.js) --> Preguntar lo de Productos.js
 //Despues hacer const productos = db.Productos --> (Alias del model que pusimos anteriormente)
 

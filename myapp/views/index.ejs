@@ -19,7 +19,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Recientes</h2>
+				<h2 class="products-title">RECIENTES</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			
@@ -29,7 +29,7 @@
 					<section class="product-box">
 						<a href="/products/detalle">
 							<figure class="product-box_image">
-								<img src=<%= productos[i].imagen %> alt="cafetera moulinex">
+								<img src= "<%= productos[i].imagen %>"  >
 							</figure>
 							<article class="product-box_data">
 								<h2><%= productos[i].nombre %></h2>
@@ -54,7 +54,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Vintage</h2>
+				<h2 class="products-title">VINTAGE</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% for (let i=4; i<8; i++) { %>
@@ -63,7 +63,7 @@
 					<section class="product-box">
 						<a href="/products/detalle">
 							<figure class="product-box_image">
-								<img src=<%= productos[i].imagen %> alt="cafetera moulinex">
+								<img src=<%= productos[i].imagen %>>
 							</figure>
 							<article class="product-box_data">
 								<h2><%= productos[i].nombre %></h2>
