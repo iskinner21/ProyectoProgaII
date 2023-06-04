@@ -34,7 +34,7 @@ module.exports = function(sequelize, dataTypes){
     //Obj literal pata configurar la tabla
     let config = {
         tableName: 'productos',
-        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
+        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
@@ -42,12 +42,12 @@ module.exports = function(sequelize, dataTypes){
 
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
-            as: "usuarios",
+            as: "usuario",
             foreignKey: "user_id",
         })
         Producto.hasMany(models.Comentario, {
             as: "comentarios",
-            foreignKey: "product_id",
+            foreignKey: "id",
         });
         
     }

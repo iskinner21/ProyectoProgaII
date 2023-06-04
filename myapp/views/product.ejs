@@ -10,7 +10,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productos[1].nombre %></h2> 
+			<h2 class="products-title"><%= productos.product_name %></h2> 
 			<p class="product-detail-description">
 				<a href="/products/productAdd">Editar</a>
 			</p>
@@ -18,16 +18,16 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src='<%= productos[1].imagen %>' alt="" class="product-detail-img">
+					<img src='<%= productos.product_img %>' alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= productos[1].descripcion %>
+						<%= productos.product_description %>
 					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<% for (let i=0 ; i<comentarios.length ; i++) { %>
 						<article>
-							<img src='<%= comentarios[i].imagen %>' alt="">
+							<img src='<%= comentarios[i].product_img%>' alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/profile"><%= comentarios [i].nombre %></a> </strong>

@@ -9,13 +9,13 @@ module.exports = function(sequelize, dataTypes){
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER.UNSIGNED,
         },
         product_id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER.UNSIGNED,
         },
         user_id: {
-            type: dataTypes.INTEGER,
+            type: dataTypes.INTEGER.UNSIGNED,
         },
         texto_comentario: {
             type: dataTypes.STRING,
@@ -28,10 +28,11 @@ module.exports = function(sequelize, dataTypes){
         }
     }; 
 
+    
     //Obj literal pata configurar la tabla
     let config = {
         tableName: 'comentarios',
-        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
+        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 

@@ -9,12 +9,16 @@ const productos = db.Producto;
 //metodos
 const productsController= {
     products: function(req, res) {
-        db.Producto.findAll()
+        db.Producto.findOne({
+            where: [{id: req.params.id}],
+            include : {association: "usuario"}
+        })
         .then((data) => {
+           // return res.send(data)
             return res.render('product',{
-               productos : data.productos,
-               comentarios: data.comentarios,
-               usuario: data.usuario[0]
+               productos : data,
+               comentarios: [],
+               usuario: data.usuario
          }) 
         })
         .catch((error) => [
