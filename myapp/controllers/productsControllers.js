@@ -9,12 +9,17 @@ const productos = db.Producto;
 //metodos
 const productsController= {
     products: function(req, res) {
-        db.Producto.findOne({
-            where: [{id: req.params.id}],
-            include : {association: "usuario"}
-        })
+
+        
+
+        let rel = {
+            include: [{ association: "comments"}, {association: "user"}],
+          };
+
+        db.Producto.findByPk(req.params.id, rel)
         .then((data) => {
-           // return res.send(data)
+            console.log(data)
+           //return res.send(data)
             return res.render('product',{
                productos : data,
                comentarios: [],

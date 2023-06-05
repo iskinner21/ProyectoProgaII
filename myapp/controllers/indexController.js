@@ -1,5 +1,6 @@
 const db = require('../database/models')
 const productos = db.Producto
+let op = db.Sequelize.Op
 //Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
 //Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
 // --> PREGUNTAR QUE VA EN INDEX CONTROLLER
@@ -12,7 +13,7 @@ const indexController= {
         productos.findAll({
             limit : 8,
             order :[["created_at" , "DESC"]], 
-            include: [{ association : "usuario"}]
+            include: [{ association : "user"}]
         })
         .then((data) => {
          //return res.send(data)

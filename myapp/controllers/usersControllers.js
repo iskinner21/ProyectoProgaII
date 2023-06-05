@@ -1,6 +1,7 @@
 //require
 const db = require('../database/models');
 const usuario = db.Usuarios;
+let op = db.Sequelize.Op
 //Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
 //Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
 
@@ -12,11 +13,11 @@ let controller = {
                 include: [{
                         association: 'comentarios',
                         include: {
-                            association: 'usuarios'
+                            association: 'user'
                         }
                     }, // Relación comentario producto y relación comentario usuario
                     {
-                        association: 'usuarios'
+                        association: 'user'
                     }, // Relación producto usuario
 
                 ],
