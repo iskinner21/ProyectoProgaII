@@ -10,17 +10,18 @@ email VARCHAR(255) NOT NULL,
 contra VARCHAR (255) NOT NULL,
 img VARCHAR (255) NOT NULL,
 dni INT NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 user_id INT UNSIGNED NOT NULL,
+product_img VARCHAR(255) NOT NULL,
 product_name VARCHAR(255) NOT NULL,
 product_description VARCHAR(255) NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
 
 FOREIGN KEY (user_id) REFERENCES usuarios(id) 
 );
@@ -30,14 +31,14 @@ id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
 product_id INT UNSIGNED NOT NULL,
 user_id INT UNSIGNED NOT NULL,
 texto_comentario VARCHAR(255) NOT NULL,
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
 FOREIGN KEY (user_id) REFERENCES usuarios(id),
 FOREIGN KEY (product_id) REFERENCES productos(id) 
 );
 
-INSERT INTO usuarios (id,firstname,lastname,username,birthday,email,contra,img,dni,createdAt,updatedAt)
+INSERT INTO usuarios (id,firstname,lastname,username,birthday,email,contra,img,dni,created_at,updated_at)
 VALUES 
 (DEFAULT, 'Lucas','Alonso','lalonso','2002-06-29','lucasalonso@gmail.com','lualon123','lucas.jpg','44726589',DEFAULT, DEFAULT),
 (DEFAULT, 'Martin','Gomez','mgomez','1998-09-21','mgomez@gmail.com','margom123','martin.jpg','39876345',DEFAULT, DEFAULT),
@@ -46,21 +47,21 @@ VALUES
 (DEFAULT, 'Ignacio','Lozano','ilozano','2000-06-01','ilozano@gmail.com','ignloz123','ignacio.jpg','42723304',DEFAULT, DEFAULT)
 ;
 
-INSERT INTO productos (id, user_id, product_name, product_description, createdAt, updatedAt)
+INSERT INTO productos (id, user_id, product_img, product_name, product_description, created_at, updated_at)
 VALUES
-(DEFAULT, '1', 'Boca 2021/22', 'Camistea Boca Adidas Titular 2021/22 sponsor QATAR Airways', DEFAULT, DEFAULT),
-(DEFAULT, '5', 'River 2022/23', 'Camistea River Adidas Titular 2022/23 sponsor Codere', DEFAULT, DEFAULT),
-(DEFAULT, '2', 'Tigre 2022/23', 'Camistea Tigre Kappa Titular 2022/223 sponsor Marco', DEFAULT, DEFAULT),
-(DEFAULT, '3', 'Lanus 2019', 'Camistea Lanus Peak Suplente 2019 sponsor YAMAHA', DEFAULT, DEFAULT),
-(DEFAULT, '4', 'Gimnasia LP 2022/23', 'Camistea Gimnasia LP Givova Titular 2022/23 sponsor RapiCuotas', DEFAULT, DEFAULT),
-(DEFAULT, '1', 'Boca 2007', 'Camistea Boca Nike Suplente 2007 Campeon Copa Libertadores sponsor MEGATONE', DEFAULT, DEFAULT),
-(DEFAULT, '5', 'River 1986', 'Camistea River Adidas Suplente 1986 sponsor Fate', DEFAULT, DEFAULT),
-(DEFAULT, '2', 'Tigre 2012', 'Camistea Tigre Kappa Suplente 2012 sponsor Macro', DEFAULT, DEFAULT),
-(DEFAULT, '2', 'Tigre 2019', 'Camistea Tigre Joma Suplente 2019 Campeon sponsor Macro', DEFAULT, DEFAULT),
-(DEFAULT, '3', 'Racing 2019', 'Camistea Racing Kappa Titular 2019 Campeon sponsor RCA', DEFAULT, DEFAULT)
+(DEFAULT, '1', "/images/products/Boca2021.jpg", 'Boca 2021/22', 'Camistea Boca Adidas Titular 2021/22 sponsor QATAR Airways', DEFAULT, DEFAULT),
+(DEFAULT, '5', "/images/products/River2022.jpg", 'River 2022/23', 'Camistea River Adidas Titular 2022/23 sponsor Codere', DEFAULT, DEFAULT),
+(DEFAULT, '2', "/images/products/Tigre2023.jpg", 'Tigre 2022/23', 'Camistea Tigre Kappa Titular 2022/223 sponsor Marco', DEFAULT, DEFAULT),
+(DEFAULT, '3', "/images/products/Lanus2019.jpg", 'Lanus 2019', 'Camistea Lanus Peak Suplente 2019 sponsor YAMAHA', DEFAULT, DEFAULT),
+(DEFAULT, '4', "/images/products/GimnasiaLP2022.jpg", 'Gimnasia LP 2022/23', 'Camistea Gimnasia LP Givova Titular 2022/23 sponsor RapiCuotas', DEFAULT, DEFAULT),
+(DEFAULT, '1', "/images/products/Boca2007.jpg", 'Boca 2007', 'Camistea Boca Nike Suplente 2007 Campeon Copa Libertadores sponsor MEGATONE', DEFAULT, DEFAULT),
+(DEFAULT, '5', "/images/products/River1986.jpg", 'River 1986', 'Camistea River Adidas Suplente 1986 sponsor Fate', DEFAULT, DEFAULT),
+(DEFAULT, '2', "/images/products/Tigre2012.jpg", 'Tigre 2012', 'Camistea Tigre Kappa Suplente 2012 sponsor Macro', DEFAULT, DEFAULT),
+(DEFAULT, '2', "/images/products/Tigre2019.jpg", 'Tigre 2019', 'Camistea Tigre Joma Suplente 2019 Campeon sponsor Macro', DEFAULT, DEFAULT),
+(DEFAULT, '3', "/images/products/Racing2019.jpg", 'Racing 2019', 'Camistea Racing Kappa Titular 2019 Campeon sponsor RCA', DEFAULT, DEFAULT)
 ;
 
-INSERT INTO comentarios (id, product_id, user_id, texto_comentario, createdAt, updatedAt)
+INSERT INTO comentarios (id, product_id, user_id, texto_comentario, created_at, updated_at)
 VALUES
 (DEFAULT, '1', '2', 'Increible. Muy buena tela!', DEFAULT, DEFAULT),
 (DEFAULT, '1', '3', 'Buena compra, buen vendedor.', DEFAULT, DEFAULT),
