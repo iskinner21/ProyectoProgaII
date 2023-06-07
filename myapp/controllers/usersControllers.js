@@ -11,7 +11,7 @@ let controller = {
 
         db.Product.findByPk(req.params.id, {
                 include: [{
-                        association: 'comentarios',
+                        association: 'comments',
                         include: {
                             association: 'user'
                         }

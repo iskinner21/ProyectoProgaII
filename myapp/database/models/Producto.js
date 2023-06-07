@@ -22,21 +22,19 @@ module.exports = function(sequelize, dataTypes){
         },
         product_description: {
             type: dataTypes.STRING,
-        }
-        
-        /*,
+        },
         created_at: {
             type: dataTypes.DATE,
         },
         updated_at: {
             type: dataTypes.DATE,
-        }*/
+        }
     }; 
 
     //Obj literal pata configurar la tabla
     let config = {
         tableName: 'productos',
-        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
+        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
         underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
@@ -46,11 +44,11 @@ module.exports = function(sequelize, dataTypes){
         Producto.belongsTo(models.Usuario, {
             as: "user",
             foreignKey: "user_id",
-        })
+        }),
         Producto.hasMany(models.Comentario, {
             as: "comments",
             foreignKey: "product_id",
-        })
+        });
       
         
         

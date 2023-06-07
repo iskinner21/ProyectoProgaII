@@ -13,13 +13,13 @@ const productsController= {
         
 
         let rel = {
-            include: [{ association: "comments"}, {association: "user"}],
+            include: [{ association: "comments"}],
           };
 
         db.Producto.findByPk(req.params.id, rel)
         .then((data) => {
-            console.log(data)
            //return res.send(data)
+
             return res.render('product',{
                productos : data,
                comentarios: [],
