@@ -35,10 +35,10 @@ module.exports = function(sequelize, dataTypes){
     dni:{
         type: dataTypes.INTEGER,
     },
-    created_at:{
+    createdAt:{
         type: dataTypes.DATE,
     },
-    updated_at:{
+    updatedAt:{
         type: dataTypes.DATE,
     },
     }; 
@@ -47,19 +47,19 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: 'usuarios',
         timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
+        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
     const Usuario = sequelize.define(alias, cols, config);
 
     Usuario.associate = function(models) {
         Usuario.hasMany(models.Producto, {
-            as: "product",
-            foreignKey: "user_id",
+            as: "producto",
+            foreignKey: "usuarioId",
         }),
         Usuario.hasMany(models.Comentario, {
-            as: "comments",
-           foreingnKey: "user_id", 
+            as: "comentarios",
+           foreingnKey: "usuarioId", 
         });
         
     }
