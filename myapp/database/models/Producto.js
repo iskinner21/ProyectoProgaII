@@ -11,22 +11,22 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        user_id: {
+        usuarioId: {
             type: dataTypes.INTEGER,
         },
-        product_img: {
+        productImg: {
             type: dataTypes.STRING,
         },
-        product_name: {
+        productName: {
             type: dataTypes.STRING,
         },
-        product_description: {
+        productDescription: {
             type: dataTypes.STRING,
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         }
     }; 
@@ -35,19 +35,19 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: 'productos',
         timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
+        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
     const Producto = sequelize.define(alias, cols, config);
 
     Producto.associate = function (models) {
         Producto.belongsTo(models.Usuario, {
-            as: "user",
-            foreignKey: "user_id",
+            as: "usuario",
+            foreignKey: "usuarioId",
         }),
         Producto.hasMany(models.Comentario, {
-            as: "comments",
-            foreignKey: "product_id",
+            as: "comentario",
+            foreignKey: "productId",
         });
       
         
