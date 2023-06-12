@@ -11,19 +11,19 @@ module.exports = function(sequelize, dataTypes){
             primaryKey: true,
             type: dataTypes.INTEGER,
         },
-        product_id: {
+        productId: {
             type: dataTypes.INTEGER,
         },
-        user_id: {
+        usuarioId: {
             type: dataTypes.INTEGER,
         },
-        texto_comentario: {
+        textoComentario: {
             type: dataTypes.STRING,
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         }
     }; 
@@ -31,21 +31,21 @@ module.exports = function(sequelize, dataTypes){
 
     //Obj literal pata configurar la tabla
     let config = {
-        tableName: 'comentarios',
-        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: true, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
+        tableName: 'Comentarios',
+        timestamps: false, //Si la tabla no tiene los campos created_at y updated_at
+        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.
     };
 
     const Comentario = sequelize.define(alias, cols, config);
 
     Comentario.associate = function (models) {
         Comentario.belongsTo(models.Usuario, {
-            as: "user",
-            foreignKey: "user_id"
+            as: "usuario",
+            foreignKey: "usuarioId"
         }),
        Comentario.belongsTo(models.Producto, {
-            as: "product",
-            foreignKey: "product_id"
+            as: "producto",
+            foreignKey: "productId"
         });
         
     }
