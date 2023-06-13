@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const session = require('express-session');
 const db = require('./database/models')
 
 var indexRouter = require('./routes/index');
@@ -12,12 +12,16 @@ var productsRouter = require('./routes/products');
 
 var app = express();
 
-const session = require('express-session');
+
 app.use(session( {
   secret: 'MyApp',
   resave: false,
   saveUninitialized: true }));
 
+app.use(function (req, res, next) {
+  res.locals.UserName = req.session.UserName
+  return next()
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,4 +53,3 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
