@@ -10,25 +10,30 @@ const productos = db.Producto
 //metodos
 const indexController= {
     index: function(req, res) {
+        
         productos.findAll({
             limit : 8,
-            order :[["created_at" , "DESC"]], 
-            include: [{ association : "comments"} ]
+            order :[["createdAt" , "DESC"]], 
+            include: [{association: 'comentario'}, {association: 'usuario'}]
         })
-        .then((data) => {
-         //return res.send(data)
-            return res.render('index', {
-                 productos: data,
-                 comentarios: [1, 2, 3, 4, 5],
-                 UserLog: false
-             })
+        .then((data)=>{
+            return res.render('index', {producto: data})
         })
-        .catch((error) => [
-            console.log(error)
-        ])
+        
     },
     resultadoBusqueda: function(req, res){
-        return res.render('resultadoBusqueda')
+        let queryString = req.query.search;
+        productos.findAll({
+            order :[["createdAt" , "DESC"]],
+            where: {[op.or]: [{productName: {[op.like]: `%${queryString}%`}}, { productDescription: {[op.like]: `%${queryString}%`} }]},
+            include: [{association: 'comentario'}, {association: 'usuario'}]
+        })
+        .then((data)=>{
+            
+            return res.render('search-results', {producto: data})
+        })
+        .catch((err)=>{console.log(err);})
+        
     }
 }
 

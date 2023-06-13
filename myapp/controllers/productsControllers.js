@@ -4,43 +4,63 @@ const productos = db.Producto;
 //Aca deberia hacer const db = require('../database/models/Productos.js) --> Preguntar lo de Productos.js
 //Despues hacer const productos = db.Productos --> (Alias del model que pusimos anteriormente)
 
-//Falta lo de findByPk ---> Para poder hacer lo de relaciones
 
 //metodos
 const productsController= {
     products: function(req, res) {
-
-        
-
-        let rel = {
-            include: [{ association: "comments"}],
-          };
-
-        db.Producto.findByPk(req.params.id, rel)
-        .then((data) => {
-           //return res.send(data)
-
-            return res.render('product',{
-               productos : data,
-               comentarios: [],
-               usuario: data.usuario
-         }) 
+        let id = req.params.id
+        productos.findByPk(id,{
+            include: [{association: 'usuario'}, {association: 'comentario', include: [{association: 'usuario'}]}]
         })
-        .catch((error) => [
-            console.log(error)
-        ])
+        .then((data)=>{
+            return res.render('product', {producto: data, comments: data.comentario})
+        })
+    },
+    productAdd: function(req, res){
+        return res.render ('product-add')
+    },
+    productEdit: function (req, res) {
+        let id = req.params.id
+        productos.findByPk(id)
+        .then((data)=>{
+            console.log(data);
+            return res.render('product-edit', {producto: data})
+        })
+        
     },
 
-        productAdd: function(req,res){
-            return res.render ('product-add', {
-                 productos: data.productos ,
-                 comentarios: data.comentarios , 
-                 usuario: data.usuario[0]
-
-
-            })
-        }
-
+    create_product: function (req, res) {
+        
+        productos.create({
+            usuarioId: req.session.UserName.id,
+            productImg: req.body.Image,
+            productName: req.body.NombreProduct,
+            productDescription: req.body.Descripcion,
+        })
+        return res.redirect('/')
+    },
+    edit_product: function (req, res) {
+        productos.update({
+            productImg: req.body.Image,
+            productName: req.body.NombreProduct,
+            productDescription: req.body.Descripcion,
+        },{
+            where: {id: req.params.id}
+        })
+        return res.redirect('/')
+    },
+    delete_product: function (req, res) {
+        let id = req.params.id
+        //eliminamos los comentarios
+        comentarios.destroy({
+            where: {productId: id}
+        })
+        //eliminamos el producto
+        productos.destroy({
+            where: {id: id}
+        })
+        return res.redirect('/')
+    }
 
     } 
          

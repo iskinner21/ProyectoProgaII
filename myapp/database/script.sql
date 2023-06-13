@@ -1,7 +1,7 @@
 CREATE SCHEMA myapp_db;
 USE myapp_db;
 CREATE TABLE usuarios (
-id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 firstname VARCHAR(255) NOT NULL,
 lastname VARCHAR(255) NOT NULL,
 username VARCHAR(255) NOT NULL,
@@ -10,35 +10,35 @@ email VARCHAR(255) NOT NULL,
 contra VARCHAR (255) NOT NULL,
 img VARCHAR (255) NOT NULL,
 dni INT NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-user_id INT UNSIGNED NOT NULL,
-product_img VARCHAR(255) NOT NULL,
-product_name VARCHAR(255) NOT NULL,
-product_description VARCHAR(255) NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+usuarioId INT UNSIGNED NOT NULL,
+productImg VARCHAR(255) NOT NULL,
+productName VARCHAR(255) NOT NULL,
+productDescription VARCHAR(255) NOT NULL,
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
 
-FOREIGN KEY (user_id) REFERENCES usuarios(id) 
+FOREIGN KEY (usuarioId) REFERENCES usuarios(id) 
 );
 
 CREATE TABLE comentarios(
-id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-product_id INT UNSIGNED NOT NULL,
-user_id INT UNSIGNED NOT NULL,
-texto_comentario VARCHAR(255) NOT NULL,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+productId INT UNSIGNED NOT NULL,
+usuarioId INT UNSIGNED NOT NULL,
+textoComentario VARCHAR(255) NOT NULL,
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-FOREIGN KEY (user_id) REFERENCES usuarios(id),
-FOREIGN KEY (product_id) REFERENCES productos(id) 
+FOREIGN KEY (usuarioId) REFERENCES usuarios(id),
+FOREIGN KEY (productId) REFERENCES productos(id) 
 );
 
-INSERT INTO usuarios (id,firstname,lastname,username,birthday,email,contra,img,dni,created_at,updated_at)
+INSERT INTO usuarios (id,firstname,lastname,username,birthday,email,contra,img,dni,createdAt,updatedAt)
 VALUES 
 (DEFAULT, 'Lucas','Alonso','lalonso','2002-06-29','lucasalonso@gmail.com','lualon123','lucas.jpg','44726589',DEFAULT, DEFAULT),
 (DEFAULT, 'Martin','Gomez','mgomez','1998-09-21','mgomez@gmail.com','margom123','martin.jpg','39876345',DEFAULT, DEFAULT),
@@ -47,7 +47,7 @@ VALUES
 (DEFAULT, 'Ignacio','Lozano','ilozano','2000-06-01','ilozano@gmail.com','ignloz123','ignacio.jpg','42723304',DEFAULT, DEFAULT)
 ;
 
-INSERT INTO productos (id, user_id, product_img, product_name, product_description, created_at, updated_at)
+INSERT INTO productos (id, usuarioId, productImg, productName, productDescription, createdAt, updatedAt)
 VALUES
 (DEFAULT, '1', "/images/products/Boca2021.jpg", 'Boca 2021/22', 'Camistea Boca Adidas Titular 2021/22 sponsor QATAR Airways', DEFAULT, DEFAULT),
 (DEFAULT, '5', "/images/products/River2022.jpg", 'River 2022/23', 'Camistea River Adidas Titular 2022/23 sponsor Codere', DEFAULT, DEFAULT),
@@ -61,7 +61,7 @@ VALUES
 (DEFAULT, '3', "/images/products/Racing2019.jpg", 'Racing 2019', 'Camistea Racing Kappa Titular 2019 Campeon sponsor RCA', DEFAULT, DEFAULT)
 ;
 
-INSERT INTO comentarios (id, product_id, user_id, texto_comentario, created_at, updated_at)
+INSERT INTO comentarios (id, productId, usuarioId, textoComentario, createdAt, updatedAt)
 VALUES
 (DEFAULT, '1', '2', 'Increible. Muy buena tela!', DEFAULT, DEFAULT),
 (DEFAULT, '1', '3', 'Buena compra, buen vendedor.', DEFAULT, DEFAULT),
