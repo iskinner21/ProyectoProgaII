@@ -17,9 +17,20 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> <i><br>
-				 <form action="/users/login" method="POST">
+				 <form action="/users/register" method="POST">
+					
 					 <label for="email">Mail/Correo electronico:</label>
 					 <input type="email" id="email" name="email" required>
+					 <br>
+					 <br>
+
+					 <label for="firstname">Nombre</label>
+					 <input type="text" id="firstname" name="firstname" required>
+					 <br>
+					 <br>
+
+					 <label for="lastname">Apellido</label>
+					 <input type="text" id="lastname" name="lastname" required>
 					 <br>
 					 <br>
 
@@ -39,7 +50,7 @@
 					 <br>
 
 					 <label for="NumeroDoc">D.N.I:</label>
-					 <input type="number" id="NumeroDoc" name="NumeroDoc">
+					 <input type="number" id="NumeroDoc" name="NumeroDoc" required>
 					 <br>
 					 <br>
 
@@ -48,9 +59,11 @@
 					 <br>
 					 <br>
 
-					 <input type="submit" value="Registrate">
+					 <button type="submit">Enviar</button>
 
-					 
+					 <% if (locals.errors) {%>
+						<p><%= errors.message %></p>
+					 <% } %>
 				 
 				</form>
 
