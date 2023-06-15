@@ -23,16 +23,17 @@ const indexController= {
         })
         
     },
-    resultadoBusqueda: function(req, res){
+    resultadoBusquedaUsuarios: function(req, res){
         let queryString = req.query.search;
-        productos.findAll({
+        usuario.findAll({
             order :[["createdAt" , "DESC"]],
-            where: {[op.or]: [{productName: {[op.like]: `%${queryString}%`}}, { productDescription: {[op.like]: `%${queryString}%`} }]},
-            include: [{association: 'comentario'}, {association: 'usuario'}]
+            where: {[op.or]: [{username: {[op.like]: `%${queryString}%`}}, { email: {[op.like]: `%${queryString}%`} }]},
+            include: [{association: 'comentarios'}, {association: 'producto'}]
         })
         .then((data)=>{
-            
-            return res.render('search-results', {producto: data})
+
+            return res.render('search-Usuario', {usuarios: data})
+           
         })
         .catch((err)=>{console.log(err);})
         
