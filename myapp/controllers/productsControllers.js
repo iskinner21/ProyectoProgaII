@@ -48,19 +48,8 @@ const productsController= {
             where: {id: req.params.id}
         })
         return res.redirect('/')
-    },
-    delete_product: function (req, res) {
-        let id = req.params.id
-        //eliminamos los comentarios
-        comentarios.destroy({
-            where: {productId: id}
-        })
-        //eliminamos el producto
-        productos.destroy({
-            where: {id: id}
-        })
-        return res.redirect('/')
     }
+    
 
     } 
          
