@@ -1,8 +1,8 @@
 //require
 const db = require('../database/models');
 const usuario = db.Usuario;
-const bcryptjs = require('bcryptjs') // requerimos el modulo bcryptjs que nos permitira encriptar y desencriptar datos
-let op = db.Sequelize.Op
+const bcryptjs = require('bcryptjs'); // requerimos el modulo bcryptjs que nos permitira encriptar y desencriptar datos
+let op = db.Sequelize.Op;
 //Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
 //Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
 

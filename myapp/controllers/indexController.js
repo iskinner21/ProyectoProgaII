@@ -1,5 +1,7 @@
-const db = require('../database/models')
-const productos = db.Producto
+const db = require('../database/models');
+const productos = db.Producto;
+const usuario = db.Usuario;
+const op = db.Sequelize.Op;
 
 //Aca deberia hacer const db = require('../database/models/Usuarios.js) --> Preguntar lo de Usuarios.js
 //Despues hacer const usuarios = db.Usuarios --> (Alias del model que pusimos anteriormente)
