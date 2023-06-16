@@ -1,2 +1,3 @@
 # ProyectoProgaII
-Poner aca cuales son las electivas.
+BUSCADOR DE USUARIOS
+LIKE EN PRODUCTOS
