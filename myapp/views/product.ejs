@@ -15,7 +15,8 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title tituloProfile"><%= producto.productName %>Publicado por:  </h2> 
+			<h2 class="products-title tituloProfile"><%= producto.productName %>Publicado por: <a href="/users/profile/<%= producto.usuario.id %>"><%= producto.usuario.username %></a></h2> 
+			<br>
 			<% if (locals.UserName != undefined) { %>
 				<% if(locals.UserName.id == producto.usuarioId){ %>
 					<form action="/products/productEdit/<%= producto.id %>" method="get">
