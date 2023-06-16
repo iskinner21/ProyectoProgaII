@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('./partials/head') %>
+
+<body>
+	<!-- Header -->
+	<% if(locals.UserName){ %>
+		<%- include('./partials/headerLogueado')%>
+	<% } else{ %>
+		<%- include('./partials/header')%>
+	<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12">  
+				<form action="/products/productEdit/<%= producto.id %>" method="post">
+
+                <label for="Image">Imagen:</label>
+			    <input type="text" id="image" name="Image" value="<%= producto.productImg %>" required>
+				<br>
+				<br>
+				<label for="NombreProduct">Nombre del Producto:</label>
+				<input type="text" id="NombreProduct" name="NombreProduct" value="<%= producto.productName %>"required>
+				<br>
+				<br>
+				<label for="Descripcion">Descripcion :</label>
+				<input type="text" id="Descrpcion" name="Descripcion" value="<%= producto.productDescription %>"required>
+				<br>
+				<br>
+				<button type="submit">Editar Producto</button>
+
+				</form> <br>
+			
+
+
+	<!-- footer -->
+    <%- include('./partials/footer') %>
+	<!-- /footer -->
+</body>
+
+</html>
