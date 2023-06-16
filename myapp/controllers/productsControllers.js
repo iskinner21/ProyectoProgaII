@@ -16,6 +16,16 @@ const productsController= {
         .then((data)=>{
             return res.render('product', {producto: data, comments: data.comentario})
         })
+        .catch((err)=>{console.log(err);})
+    },
+    comentAdd: function (req, res) {
+    
+        comentarios.create({
+            productId: req.params.id,
+            usuarioId: req.session.UserName.id,
+            textoComentario: req.body.comentario,
+        })
+        return res.redirect('/products/detalle/' + req.params.id)  
     },
     productAdd: function(req, res){
         return res.render ('product-add')

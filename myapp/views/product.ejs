@@ -15,7 +15,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title tituloProfile"><%= producto.productName %> Publicado por: <a href="/users/profile/<%= usuario.id %>"><%= usuario.username %></a></h2> 
+			<h2 class="products-title tituloProfile"><%= producto.productName %>Publicado por:  </h2> 
 			<% if (locals.UserName != undefined) { %>
 				<% if(locals.UserName.id == producto.usuarioId){ %>
 					<form action="/products/productEdit/<%= producto.id %>" method="get">
@@ -34,16 +34,17 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i=0 ; i< comments[i].length ; i++) { %>
-						<article>
-							<img src='<%= comments[i].usuario.img %>' alt="">
-							<div class="data">
-								<p class="user">
-								 <strong> <a href="/users/profile"><%=comments[i].usuarioId %><%=  comments[i].usuario.username %></a> </strong> 
-								<%= comments[i].textoComentario %></p>
-							</div>
-						</article>
-					<% } %>
+						<% for (let i = 0; i < comments.length; i++) {%>
+							<article>
+								<img src='<%= comments[i].usuario.img %>' alt="">
+								<div class="data">
+									<p class="user">
+									 <strong> <a href="/users/profile/<%= comments[i].usuarioId %>"><%=  comments[i].usuario.username %></a> </strong> 
+									<%= comments[i].textoComentario %></p>
+								</div>
+							</article>
+							
+						<% } %>
 						
 
 					</section>
